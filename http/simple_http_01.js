@@ -1,7 +1,6 @@
 const http = require('http');
 // 创建服务
 const server = http.createServer();
-server.listen(8090);
 // 参数解析
 const qs = require('querystring');
 
@@ -35,4 +34,4 @@ server.on('request', (request, response) => {
   response.end(responseStr)
 });
 
-
+server.listen(8090);
