@@ -2,18 +2,8 @@
 const express = require('express');
 const app = express();
 
-// 验证
-let username = (req, res, next) => {
-  console.log(req.query)
-  if (req.query.username === 'jj') {
-    // 继续执行
-    next()
-  } else {
-    res.send('username is not found')
-  }
-}
-
-app.use(username)
+// 导出
+app.use(require('./module/username.js'))
 
 // 中间件
 app.use((req, res, next) => {
