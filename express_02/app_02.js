@@ -4,7 +4,11 @@ const app = express();
 
 // 导出
 app.use(require('./module/username.js'))
-
+app.use('/', require('./routes/route_01'))
+app.use('/', (req, res, next) => {
+  console.log('...')
+  next()
+})
 // 中间件
 app.use((req, res, next) => {
   // 在req到res的生命周期中做出一些业务处理
