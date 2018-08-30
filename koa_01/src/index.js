@@ -34,3 +34,16 @@ console.log(name)
 console.log(getName())
 console.log(age)
 console.log(name_1)
+
+import { promisify } from 'util'
+import { resolve as r } from 'path'
+import { readFile, writeFileSync as wfs } from 'fs'
+
+async function init() {
+  let data = await promisify(readFile)(r(__dirname, '../package.json'))
+
+  data = JSON.parse(data)
+  console.log(data.name, "async")
+}
+
+init()
