@@ -12,7 +12,7 @@ const ObjectId = Schema.Types.ObjectId;
 // const ObjectId = mongoose.Types.ObjectId;
 
 
-// 数据库对象集合
+// 数据库对象集合(约定，规范)
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -32,7 +32,7 @@ const UserSchema = new Schema({
 
 const UserModel = mongoose.model('users', UserSchema);
 
-(async () => {
+(async (params) => {
 
   // 创建
   /*  const user = await UserModel.create({
@@ -42,9 +42,27 @@ const UserModel = mongoose.model('users', UserSchema);
   
   // 条件查询
   // const user = await UserModel.find({name: 'lo' }, { });
+  
+  // 更新
+  // const user = await UserModel.update({name: 'lo'}, {age: 21})
+  
+  // 更新并返回新的结果
+  // const user = await UserModel.findOneAndUpdate({name: 'lo'}, {age: 20}, {new: true})
 
-  return user;
-})()
+  // params
+  const filter = {};
+  if (params.name) filter.name = params.name;
+  const flow = UserModel.find(filter);
+  if (params.projection) flow.select(params.projection);
+  if (params.sort) flow.sort(params.sort);
+  const users = await flow.exec();
+
+  return users;
+})({
+  name: 'lo',
+  projection: { age: 1 },
+  sort: '-age'
+})
   .then(res => {
     console.log(res)
   })
