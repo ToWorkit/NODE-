@@ -1,5 +1,5 @@
 {
-  "name": "koa_02",
+  "name": "koa_03",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.5.2",
-    "koa-logger": "^3.2.0",
-    "koa-session": "^5.9.0"
+    "koa-logger": "^3.2.0"
   }
 }
