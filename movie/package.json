@@ -1,17 +1,18 @@
 {
-  "name": "koa_03",
+  "name": "movie",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "toki",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
+    "ejs": "^2.6.1",
     "koa": "^2.5.2",
-    "koa-logger": "^3.2.0"
+    "pug": "^2.0.3"
   }
 }
