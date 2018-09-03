@@ -8,6 +8,14 @@ class BaseSpider {
   }
 
   getContent() {
+
+  }
+
+  static async activateSpider() {
+
+  }
+
+  static async getResources() {
     
   }
 }
